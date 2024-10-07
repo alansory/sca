@@ -2327,3 +2327,25 @@ button.swiper-pagination-bullet {
   font-size: 14px; /* Set a fixed font size */
   flex-shrink: 0; /* Prevent shrinking */
 }
+
+@media (max-width: 768px) {
+  .mobile-only {
+    display: block !important;
+  }
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+.desktop-only {
+  display: block;
+  padding-left: 0;
+  margin-bottom: 0.5rem; 
+  text-align: left;
+}
+
+.mobile-only {
+  display: none;
+  margin-bottom: 0.5rem; 
+  text-align: left;
+}
