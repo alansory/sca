@@ -2293,9 +2293,9 @@ button.swiper-pagination-bullet {
   /* inset: auto 0 0 0;  */
   /* height: 50%; */
   /* background-color: #DCDCDC; */
-  /* background-image: conic-gradient(from 55deg at 50% 50%, #f0f0f0 0deg, #DCDCDC 360deg); */
+  background-image: conic-gradient(from 55deg at 50% 50%, #f0f0f0 0deg, #DCDCDC 360deg);
   /* transform: skewY(-31deg); */
-  background-color: #71CBE6;
+  /* background-color: #71CBE6; */
   transform-origin: top left;
   z-index: 0;
 }
@@ -2307,9 +2307,10 @@ button.swiper-pagination-bullet {
   /* inset: auto 0 0 0;  */
   /* height: 50%; */
   /* background-color: #DCDCDC; */
-  /* background-image: conic-gradient(from 55deg at 50% 50%, #00B0E5 0deg, #74D1EB 360deg); */
+  background-image: conic-gradient(from 55deg at 50% 50%, #00B0E5 0deg, #74D1EB 360deg);
   /* transform: skewY(-31deg); */
-  background-color: #002A5C;
+  /* background-color: #002A5C; */
+  color: white;
   transform-origin: top left;
   z-index: 0;
 }
@@ -2348,4 +2349,8 @@ button.swiper-pagination-bullet {
   display: none;
   margin-bottom: 0.5rem; 
   text-align: left;
+}
+
+.color-white {
+  color: white;
 }
