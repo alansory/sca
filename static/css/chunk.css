@@ -2295,7 +2295,8 @@ button.swiper-pagination-bullet {
   /* background-color: #DCDCDC; */
   /* background-image: conic-gradient(from 55deg at 50% 50%, #f0f0f0 0deg, #DCDCDC 360deg); */
   /* transform: skewY(-31deg); */
-  background-color: #D3DBE4;
+  /* background-color: #D3DBE4; */
+  background: linear-gradient(to right, #C5CDD5 2%, #D3DBE4 100%);
   transform-origin: top left;
   z-index: 0;
 }
@@ -2309,7 +2310,8 @@ button.swiper-pagination-bullet {
   /* background-color: #DCDCDC; */
   /* background-image: conic-gradient(from 55deg at 50% 50%, #00B0E5 0deg, #74D1EB 360deg); */
   /* transform: skewY(-31deg); */
-  background-color: #24252C;
+  /* background-color: #0070E7; */
+  background: linear-gradient(to right, #0070E7 2%, #0098E7 26%, #00BCE7 99%);
   color: white;
   transform-origin: top left;
   z-index: 0;
