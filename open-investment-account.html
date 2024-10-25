@@ -672,7 +672,7 @@
                                                                                 <option value="" selected disabled>Pilih</option>
                                                                                 <option value="classic">Classic</option>
                                                                                 <option value="professional">Professional</option>
-                                                                                <option value="premium-zero">Premium Zero</option>
+                                                                                <option value="premium">Premium</option>
                                                                             </select>
                                                                         </div>
                                                                         <div
@@ -926,65 +926,43 @@
                                                                                 <option value="400">1:400</option>
                                                                                 <option value="1000">1:1000</option>
                                                                             </select>
-                                                                            <div class="ant-select sc-bYMpWt dCbXA-D ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                                                            name="428">
-                                                                            <div class="ant-select-selector" style="margin-top: 20px;">
-                                                                                <span
-                                                                                    class="ant-select-selection-search"><input
-                                                                                        type="search"
-                                                                                        autocomplete="off"
-                                                                                        class="ant-select-selection-search-input"
-                                                                                        role="combobox"
-                                                                                        aria-haspopup="listbox"
-                                                                                        aria-owns="rc_select_26_list"
-                                                                                        aria-autocomplete="list"
-                                                                                        aria-controls="rc_select_26_list"
-                                                                                        aria-activedescendant="rc_select_26_list_0"
-                                                                                        readonly=""
-                                                                                        unselectable="on" value=""
-                                                                                        id="rc_select_26"
-                                                                                        style="opacity: 0;"></span><span
-                                                                                    class="ant-select-selection-item"
-                                                                                    title="Pilih">Pilih Stop Out (Auto-Cut) Level (%)</span>
-                                                                            </div>
-                                                                            <span class="ant-select-arrow"
-                                                                                unselectable="on" aria-hidden="true"
-                                                                                style="user-select: none;">
-                                                                                <span role="img"
-                                                                                    aria-label="caret-down"
-                                                                                    class="anticon anticon-caret-down">
-                                                                                    <svg viewBox="0 0 1024 1024"
-                                                                                        focusable="false"
-                                                                                        data-icon="caret-down"
-                                                                                        width="1em" height="1em"
-                                                                                        fill="currentColor"
-                                                                                        aria-hidden="true">
-                                                                                        <path
-                                                                                            d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z">
-                                                                                        </path>
-                                                                                    </svg>
-                                                                                </span>
-                                                                            </span>
-                                                                            <span class="ant-select-clear"
-                                                                                unselectable="on" aria-hidden="true"
-                                                                                style="user-select: none;">
-                                                                                <span role="img"
-                                                                                    aria-label="close-circle"
-                                                                                    class="anticon anticon-close-circle">
-                                                                                    <svg viewBox="64 64 896 896"
-                                                                                        focusable="false"
-                                                                                        data-icon="close-circle"
-                                                                                        width="1em" height="1em"
-                                                                                        fill="currentColor"
-                                                                                        aria-hidden="true">
-                                                                                        <path
-                                                                                            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z">
-                                                                                        </path>
-                                                                                    </svg>
-                                                                                </span>
-                                                                            </span>
-                                                                        </div>
-                                                                            <span></span>
+                                                                            <select id="stopOutLevel" name="stopOutLevel" class="ant-select-selector custom-select" style="margin-top: 20px;">
+                                                                                <option value="" selected disabled>Pilih Stop Out (Auto-Cut) Level (%)</option>
+                                                                                <option value="20">20%</option>
+                                                                                <option value="40">40%</option>
+                                                                                <option value="80">80%</option>
+                                                                                <option value="100">100%</option>
+                                                                            </select>
+                                                                            <script>
+                                                                                document.addEventListener('DOMContentLoaded', function() {
+                                                                                    const leverageSelect = document.getElementById('leverageType');
+                                                                                    const stopOutSelect = document.getElementById('stopOutLevel');
+                                                                                    
+                                                                                    leverageSelect.addEventListener('change', function() {
+                                                                                        const selectedLeverage = this.value;
+                                                                                        
+                                                                                        // Clear existing options
+                                                                                        stopOutSelect.innerHTML = '<option value="" selected disabled>Pilih Stop Out (Auto-Cut) Level (%)</option>';
+                                                                                        
+                                                                                        if (selectedLeverage === '1000') {
+                                                                                            // If leverage is 1:1000, only show 100% option
+                                                                                            stopOutSelect.innerHTML += '<option value="100">100%</option>';
+                                                                                        } else if (selectedLeverage === '400' || selectedLeverage === '200') {
+                                                                                            stopOutSelect.innerHTML += '<option value="40">40%</option>';
+                                                                                            stopOutSelect.innerHTML += '<option value="80">80%</option>';
+                                                                                            stopOutSelect.innerHTML += '<option value="100">100%</option>';
+                                                                                        } else {
+                                                                                            // For other leverage values, show all options
+                                                                                            stopOutSelect.innerHTML += `
+                                                                                                <option value="20">20%</option>
+                                                                                                <option value="40">40%</option>
+                                                                                                <option value="80">80%</option>
+                                                                                                <option value="100">100%</option>
+                                                                                            `;
+                                                                                        }
+                                                                                    });
+                                                                                });
+                                                                            </script>
                                                                         </div>
                                                                         <div
                                                                             class="ant-col ant-col-24 sc-ckEbSK itEkJe">
@@ -1009,7 +987,7 @@
                                                                                 type="password"
                                                                                 class="ant-input sc-lllmON hVZKvb">
                                                                             <span
-                                                                                style="position: absolute; margin-top: 2rem; margin-left: -3rem;">
+                                                                                style="position: absolute; margin-top: 1.5rem; margin-left: -3rem;">
                                                                                 <svg stroke="currentColor"
                                                                                     fill="currentColor" stroke-width="0"
                                                                                     viewBox="0 0 1024 1024" height="1em"
@@ -1035,7 +1013,7 @@
                                                                                 type="password"
                                                                                 class="ant-input sc-lllmON hVZKvb">
                                                                             <span
-                                                                                style="position: absolute; margin-top: 2rem; margin-left: -3rem;">
+                                                                                style="position: absolute; margin-top: 1.5rem; margin-left: -3rem;">
                                                                                 <svg stroke="currentColor"
                                                                                     fill="currentColor" stroke-width="0"
                                                                                     viewBox="0 0 1024 1024" height="1em"
@@ -1054,7 +1032,9 @@
                                                                         <div
                                                                             class="ant-col ant-col-24 sc-ckEbSK itEkJe">
                                                                             <label class="sc-iveFHk caeELk" style="display: flex; align-items: flex-start;">
-                                                                                <input type="checkbox" style="margin-right: 10px; margin-top: 3px;">
+                                                                                <div style="width: 10%;">
+                                                                                    <input type="checkbox" style="margin-right: 10px; margin-top: 5px; width: 20px; height: 20px;">
+                                                                                </div>
                                                                                 <div>
                                                                                     <p style="font-size:12px;">Saya membaca, memahami, dan menerima syarat dan ketentuan untuk jenis akun, syarat dan ketentuan untuk penggunaan high leverage (lebih dari 1:100) dan persyaratan margin dinamis (dynamic margin) berdasarkan leverage, ukuran posisi, kondisi pasar, dan profil risiko nasabah. Saya juga membaca, memahami, dan menerima kebijakan perusahaan, syarat dan ketentuan yang diumumkan di situs web perusahaan, mengenai penawaran komersial yang terkait dengan spread, komisi, program bebas swap, dan program. </p>
                                                                                     <p style="font-size:12px">Penggunaan high leverage adalah opsional. Keputusan untuk menggunakan fitur ini sepenuhnya menjadi tanggung jawab nasabah. Dengan menggunakan high leverage, nasabah secara otomatis menyetujui perubahan yang terkait dengan Persyaratan Margin, Margin Call, dan Auto-Cut. Apabila terjadi perubahan rasio leverage yang menyebabkan terjadinya Auto-Cut maka sepenuhnya menjadi tanggung jawab nasabah. Saya membaca, memahami, dan menerima <a href="https://cdn2.triveinvest.co.id/pdf/syarat_dan_ketentuan_high_leverage.pdf" target="_blank" style="color: #57c9ea;">syarat dan ketentuan</a> untuk penggunaan high leverage. </p>
