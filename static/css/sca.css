@@ -627,9 +627,9 @@
 }
 
 body {
-    font-family: Proxima Nova;
-    font-size: 16px;
-    font-weight: 500;
+    font-family: "proxima-nova", sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
     margin: 0
 }
 
@@ -5495,7 +5495,7 @@ span.ant-radio+* {
 }
 
 .ant-select-single .ant-select-selector .ant-select-selection-item,.ant-select-single .ant-select-selector .ant-select-selection-placeholder {
-    line-height: 30px;
+    line-height: 20px;
     padding: 0;
     transition: all .3s
 }
@@ -13790,7 +13790,11 @@ span.ant-radio+* {
 }
 
 li.sc-hOzowv::before {
-    background-image: url(/static/media/dot-completed.beae8a8….svg);
+    background-image: url(/sca/static/media/dot-completed.beae8a8e6b0e54707c93ad96e0bfb9b6.svg);
+}
+
+li.active.sc-hOzowv::before {
+    background-image: url(/sca/static/media/dot-active.dc84e3b439511d75ff06686912b193f7.svg);
 }
 
 .duIERm::before {
@@ -13799,10 +13803,25 @@ li.sc-hOzowv::before {
     left: -26px;
     width: 16px;
     height: 16px;
-    background-image: url(/static/media/dot-default.22fa19a….svg);
+    background-image: url(/sca/static/media/dot-default.22fa19ac473e4e9e04b2c0cd68f7029a.svg);
     background-size: 100%;
     background-position: center center;
     z-index: 2;
+}
+
+.duIERm::after {
+    content: "";
+    position: absolute;
+    left: -19px;
+    top: 15px;
+    height: 100%;
+    width: 2px;
+    background-color: rgb(221, 223, 225);
+    z-index: 1;
+}
+
+.duIERm:last-child::after {
+    background-color: rgb(255, 255, 255);
 }
 
 @media (min-width: 991px) {
@@ -13870,7 +13889,7 @@ li.sc-hOzowv::before {
     padding: 15px;
     border-radius: 12px;
     color: rgb(106, 112, 126);
-    height: 60px;
+    height: 50px;
     cursor: pointer;
     font-size: 16px !important;
 }
@@ -13940,11 +13959,27 @@ li.sc-hOzowv::before {
 .ant-select-selector{
     background-color: rgb(255, 255, 255);
     border: 1px solid rgb(221, 223, 225);
-    padding: 15px;
+    padding: 10px;
     border-radius: 12px;
     color: rgb(106, 112, 126);
-    height: 60px;
+    height: 50px;
     cursor: pointer;
     font-size: 16px !important;
     width: 100%;
 }
+
+.custom-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: calc(100% - 5px);
+    background-position-y: center;
+    padding-right: 5px; /* Memberikan ruang untuk icon */
+  }
+  
+  /* Untuk browser Firefox */
+  .custom-select::-ms-expand {
+    display: none;
+  }
